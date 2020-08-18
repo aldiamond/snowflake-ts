@@ -1,8 +1,8 @@
-import { ConnectionOptions, SnowflakeConnection } from "./snowflake-core";
+import { ConnectionOptions, GlobalConfigOptions, SnowflakeConnection } from "./snowflake-core";
 
 declare module 'snowflake-sdk' {
 
-    export function configure(options: ConnectionOptions): void;
+    export function configure(options: Partial<Required<GlobalConfigOptions>>): void;
 
     export function createConnection(options: ConnectionOptions): SnowflakeConnection;
 

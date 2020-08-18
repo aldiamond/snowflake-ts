@@ -24,6 +24,7 @@ export class SnowflakeClient {
     }
 
     public static createConnection(opts: ConnectionOptions, logger: Logger = console): Promise<SnowflakeClient> {
+        snowflake.configure(opts)
         return new Promise((resolve, reject) => snowflake
             .createConnection(opts)
             .connect((err, conn) => err ? reject(err) : resolve(new SnowflakeClient(conn, logger)))

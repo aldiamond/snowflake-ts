@@ -27,6 +27,14 @@ export interface ExecuteArgs extends SqlCommand {
     complete?: CompleteCallback
 }
 
+export type SnowflakeLogLevel = "ERROR" |"WARN" | "INFO" | "DEBUG" | "TRACE"
+
+export interface GlobalConfigOptions { 
+    logLevel?: SnowflakeLogLevel;
+    insecureConnect?: boolean;
+    ocspFailOpen?: boolean;
+}
+
 export interface ConnectionOptions {
     account: string;
     username: string;
